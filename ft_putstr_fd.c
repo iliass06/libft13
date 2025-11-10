@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 00:08:26 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/29 18:36:12 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/05 10:00:48 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
 		write(fd, &s[i], 1);

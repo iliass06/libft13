@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 21:17:22 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/30 23:07:24 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/05 09:59:34 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,29 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*p;
-	unsigned char	*pt;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	p = (unsigned char *)dest;
-	pt = (unsigned char *)src;
-	while (n > 0)
+	if (!dest || !src)
+		return (NULL);
+	if (dest == src)
+		return (dest);
+	d = (unsigned char *)dest;
+	i = 0;
+	s = (const unsigned char *)src;
+	if (d < s)
 	{
-		p[n - 1] = pt[n - 1];
-		n--;
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	else
+	{
+		while (n--)
+			d[n] = s[n];
 	}
 	return (dest);
 }

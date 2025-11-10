@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 23:28:40 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/29 18:54:15 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:27:33 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	i = 0;
-	if (little[0] == '\0')
+	if (!big)
+		return (NULL);
+	if (!little || little[0] == '\0')
 		return ((char *)big);
-	while (i < len)
+	i = 0;
+	while (i < len && big[i])
 	{
 		j = 0;
-		while (little[j] && big[i + j] == little[j])
+		while (little[j] && big[i + j] && i + j < len && big[i
+				+ j] == little[j])
 		{
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 21:00:14 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/30 18:36:25 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:15:55 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*p;
 	unsigned char	*pt;
 
+	if (dest == src || n == 0)
+		return (dest);
 	i = 0;
 	p = (unsigned char *)dest;
 	pt = (unsigned char *)src;

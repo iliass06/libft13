@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 20:59:30 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/30 14:48:05 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:00:29 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_bzero(void *s, size_t n)
 
 	i = 0;
 	p = (unsigned char *)s;
-	while (p[i] && i < n)
+	while (i < n)
 	{
 		p[i] = 0;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 00:54:42 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/31 23:50:49 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:18:08 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strdup(const char *s)
 	int		i;
 	int		j;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (s[i])

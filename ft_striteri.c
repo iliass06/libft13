@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-fadi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 23:34:47 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/21 23:45:24 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:18:31 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int	i;
 
+	if (!s || !f)
+		return ;
 	i = 0;
 	while (s[i])
 	{

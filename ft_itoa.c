@@ -6,12 +6,11 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:44:04 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/31 21:16:06 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/05 10:22:54 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static int	initialize_count(int n, int count)
 {

@@ -6,92 +6,76 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 22:26:59 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/10/31 21:49:16 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/07 15:56:08 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_seep(char s, char c)
+static int	count_words(char *s, char sep)
 {
-	if (s == c)
-		return (1);
-	return (0);
-}
-
-static int	count_words(const char *s, char c)
-{
+	int	i;
 	int	count;
-	int	in_word;
 
-	in_word = 0;
 	count = 0;
-	while (*s)
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
 	{
-		if (!is_seep(*s, c) && !in_word)
-		{
+		if (s[i] != sep && (s[i + 1] == sep || s[i + 1] == '\0'))
 			count++;
-			in_word = 1;
-		}
-		else if (is_seep(*s, c))
-			in_word = 0;
-		s++;
+		i++;
 	}
 	return (count);
 }
 
-static char	*allocate_word(char *start, char *end)
+static int	word_len(char *s, char sep)
 {
-	char	*word;
-	int		i;
-	int		len;
+	int	i;
 
 	i = 0;
-	len = end - start;
-	word = malloc((end - start + 1) * sizeof(char));
-	if (!word)
-		return (NULL);
-	while (i < len)
-	{
-		word[i] = start[i];
+	while (s[i] != '\0' && s[i] != sep)
 		i++;
-	}
-	word[i] = '\0';
-	return (word);
+	return (i);
 }
 
-static void	free_all(char **out, int j)
+static char	**free_mem(char **c, int i)
 {
-	while (j-- > 0)
-		free(out[j]);
-	free(out);
+	int	index;
+
+	index = 0;
+	while (index < i)
+	{
+		free(c[index]);
+		index++;
+	}
+	free(c);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**out;
-	char	*start;
-	int		j;
+	char	**arr;
+	int		i;
+	char	*str;
 
-	j = 0;
-	out = malloc((count_words(s, c) + 1) * sizeof(char *));
-	if (!out)
+	i = 0;
+	str = (char *)s;
+	arr = (char **)malloc(sizeof(char *) * (count_words(str, c) + 1));
+	if (!arr)
 		return (NULL);
-	while (*s)
+	while (i < count_words((char *)s, c))
 	{
-		if (!is_seep(*s, c))
-		{
-			start = (char *)s;
-			while (*s && !is_seep(*s, c))
-				s++;
-			out[j] = allocate_word(start, (char *)s);
-			if (!out[j])
-				return (free_all(out, j), NULL);
-			j++;
-		}
-		else
-			s++;
+		while (*str == c)
+			str++;
+		arr[i] = (char *)malloc(sizeof(char) * (word_len(str, c) + 1));
+		if (!arr[i])
+			return (free_mem(arr, i));
+		ft_strlcpy(arr[i], str, (word_len(str, c) + 1));
+		str = str + word_len(str, c);
+		i++;
 	}
-	out[j] = NULL;
-	return (out);
+	arr[i] = NULL;
+	return (arr);
 }

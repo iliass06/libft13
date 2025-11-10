@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 13:34:51 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/11/01 00:11:45 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:03:28 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
-	size_t	s_len;
 
 	i = 0;
 	if (!s)

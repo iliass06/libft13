@@ -6,7 +6,7 @@
 /*   By: iel-fadi <iel-fadi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:35:52 by iel-fadi          #+#    #+#             */
-/*   Updated: 2025/11/01 03:06:44 by iel-fadi         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:02:21 by iel-fadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		j++;
 	if (j == size)
 		return (size + i);
-	while (k < size - j - 1)
+	while (src[k] && k < size - j - 1)
 	{
 		dst[k + j] = src[k];
 		k++;
 	}
-	if (k + j < size)
-		dst[k + j] = '\0';
+	dst[k + j] = '\0';
 	return (i + j);
-}
-#include<stdio.h>
-
-int main()
-{
-	char dst[] = "iliass";
-	char *str= " 1337";
-	printf("%zu", ft_strlcat(dst, str, 4));
-	printf("%s", dst);
 }
